@@ -16,15 +16,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['q']))
     // VULNERABLE: direct concatenation into SQL (LIKE) — no parameterization
     $constructed_sql = "SELECT POST_ID, POST_CONTENT, POST_HIDDEN FROM POST WHERE POST_HIDDEN = FALSE AND POST_CONTENT LIKE '%" . $term . "%'";
 
-    $res = $conn->query($constructed_sql);
+    $response = $conn->query($constructed_sql);
 
-    if ($res)
+    if ($response)
     {
-        while ($row = $res->fetch_assoc())
+        while ($row = $response->fetch_assoc())
         {
             $results[] = $row;
         }
-        $res->free();
+        $response->free();
     }
     else
     {
@@ -33,7 +33,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['q']))
 }
 ?>
 <!doctype html>
-<html>
+<html lang="en">
 <head>
     <meta charset="utf-8">
     <title>Search Posts (vulnerable)</title>

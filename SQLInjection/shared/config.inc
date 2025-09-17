@@ -1,9 +1,9 @@
 <?php
 // config.php - local dev only
-$dbHost = '10.0.2.2'; // localhost
-$dbUser = 'nick';
+$dbHost = 'localhost'; // or 127.0.0.1
+$dbUser = ''; // TODO - username
 $dbPass = 'IT241Pwd!';
-$dbName = 'BadSocial';
+$dbName = ''; // TODO - database name
 
 $conn = new mysqli($dbHost, $dbUser, $dbPass, $dbName);
 

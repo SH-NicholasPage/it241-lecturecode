@@ -11,14 +11,11 @@ $constructed_sql = '';
 if ($_SERVER['REQUEST_METHOD'] === 'POST')
 {
     $content = $_POST['content'] ?? '';
-    // If the hidden checkbox is checked, value will be '1'
     $hidden = isset($_POST['hidden']) && ($_POST['hidden'] === '1');
 
     // VULNERABLE: direct concatenation of user input into SQL
-    // Note: we intentionally interpolate the boolean as TRUE/FALSE (no quotes)
     $constructed_sql = "INSERT INTO POST (POST_CONTENT, POST_HIDDEN) VALUES ('" . $content . "', " . ($hidden ? 'TRUE' : 'FALSE') . ")";
 
-    // Execute the vulnerable query
     $ok = $conn->query($constructed_sql);
 
     if ($ok)
