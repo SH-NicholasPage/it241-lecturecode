@@ -10,13 +10,9 @@ $constructed_sql = '';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST')
 {
-    $content = $_POST['content'] ?? '';
-    $hidden = isset($_POST['hidden']) && ($_POST['hidden'] === '1');
+    // TODO
 
-    // VULNERABLE: direct concatenation of user input into SQL
-    $constructed_sql = "INSERT INTO POST (POST_CONTENT, POST_HIDDEN) VALUES ('" . $content . "', " . ($hidden ? 'TRUE' : 'FALSE') . ")";
-
-    $ok = $conn->query($constructed_sql);
+    $ok = true; // TODO
 
     if ($ok)
     {

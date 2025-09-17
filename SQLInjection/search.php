@@ -11,12 +11,9 @@ $term = '';
 
 if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['q']))
 {
-    $term = $_GET['q'];
+    // TODO
 
-    // VULNERABLE: direct concatenation into SQL (LIKE) — no parameterization
-    $constructed_sql = "SELECT POST_ID, POST_CONTENT, POST_HIDDEN FROM POST WHERE POST_HIDDEN = FALSE AND POST_CONTENT LIKE '%" . $term . "%'";
-
-    $response = $conn->query($constructed_sql);
+    $response = []; // TODO
 
     if ($response)
     {
