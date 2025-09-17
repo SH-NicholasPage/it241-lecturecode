@@ -45,7 +45,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['q']))
 </form>
 
 <?php if ($constructed_sql !== ''): ?>
-    <h3>Constructed SQL (for demo)</h3>
+    <h3>Constructed SQL</h3>
     <pre><?php echo htmlspecialchars($constructed_sql); ?></pre>
 <?php endif; ?>
 
